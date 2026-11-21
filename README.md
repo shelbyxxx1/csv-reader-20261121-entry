@@ -18,3 +18,10 @@ node main.ts
 
 The driver reads `/input/cases.json` and writes `/output/answers.json`.
 For local runs, set `MAKEFUN_INPUT_DIR` and `MAKEFUN_OUTPUT_DIR` to existing directories.
+
+Local verification on Node.js 22.23.5: all six practice cases, 110 edge checks, and
+100,000 deterministic randomized inputs matched the reference. Median end-to-end
+wall time over nine six-case runs was 617 ms versus the baseline's 1,584 ms (2.57×).
+These are local measurements, not competition results. Docker was unavailable;
+two empty-environment runs of a read-only copy matched the baseline byte-for-byte,
+and the kit scorer reported 6/6 cases passed.
