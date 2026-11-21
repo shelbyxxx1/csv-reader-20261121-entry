@@ -45,17 +45,25 @@ export function run(input) {
         } else {
           value = text.slice(open + 1, end);
           if (doubled) value = value.replaceAll('""', '"');
-          let next = text.indexOf('\n', open + 1);
-          while (next !== -1 && next < end) {
-            line++;
-            next = text.indexOf('\n', next + 1);
+          if (newline < open + 1) {
+            newline = text.indexOf('\n', open + 1);
+            if (newline === -1) newline = length;
           }
-          next = text.indexOf('\r', open + 1);
-          if (next !== -1 && next < end) {
+          while (newline < end) {
+            line++;
+            newline = text.indexOf('\n', newline + 1);
+            if (newline === -1) newline = length;
+          }
+          if (carriage < open + 1) {
+            carriage = text.indexOf('\r', open + 1);
+            if (carriage === -1) carriage = length;
+          }
+          if (carriage < end) {
             do {
-              if (text.charCodeAt(next + 1) !== 10) line++;
-              next = text.indexOf('\r', next + 1);
-            } while (next !== -1 && next < end);
+              if (text.charCodeAt(carriage + 1) !== 10) line++;
+              carriage = text.indexOf('\r', carriage + 1);
+              if (carriage === -1) carriage = length;
+            } while (carriage < end);
             value = value.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
           }
           pos = end + 1;
