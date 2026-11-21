@@ -1,0 +1,9 @@
+make.fun entry submitted
+competition: csv-reader-speed-01-run-20261121
+submission: 01a1fe03-fffe-77a5-b421-bf024a1df7f1
+title: Fast broken-CSV reader
+repo: https://github.com/shelbyxxx1/csv-reader-20261121-entry
+commit: 42713f8cdf635090af60016185745bf4ce35c6c6
+submitted: 2026-11-21T12:10:37Z
+local verification: practice 6/6, edge battery 88/88, grade-local passed 6/6,
+benchmark median 642 ms vs baseline 1628 ms (2.54x) on this machine.
